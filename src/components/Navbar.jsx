@@ -12,9 +12,11 @@ const Navbar = () => {
   const [navState, setNavState] = useState(false);
   const dispatch = useDispatch();
 
+  const { cartItem } = useSelector((state) => state.cart);
+
   const onCartOpen = () => {
     dispatch(openCartReq());
-    dispatch(openCart());
+    dispatch(openCart(true));
   };
 
   const onScroll = () => {
@@ -73,7 +75,7 @@ const Navbar = () => {
                   : "bg-slate-100 text-sky-900 shadow-slate-100"
               }`}
             >
-              0
+              {cartItem.length}
             </div>
           </li>
         </ul>

@@ -1,5 +1,7 @@
 import React from "react";
 import { StarIcon, ShoppingBagIcon } from "@heroicons/react/24/solid";
+import { useDispatch } from "react-redux";
+import { addItemtoCartReq, addItemToCart } from "../../redux/CartSlice";
 
 const Item = ({
   id,
@@ -13,6 +15,12 @@ const Item = ({
   price,
   ifExists,
 }) => {
+  const dispatch = useDispatch();
+  const addToCart = () => {
+    const item = { id, title, text, img, color, shadow, price };
+    dispatch(addItemtoCartReq());
+    dispatch(addItemToCart(item));
+  };
   return (
     <div
       className={`relative bg-gradient-to-b ${color} ${shadow} grid items-center 
@@ -48,7 +56,10 @@ const Item = ({
             type="button"
             className="bg-white-90 blur-effect-theme button-theme p-0.5 shadow shadow-sky-200"
           >
-            <ShoppingBagIcon className="icon-style text-slate-900" />
+            <ShoppingBagIcon
+              className="icon-style text-slate-900"
+              onClick={() => addToCart()}
+            />
           </button>
           <button
             type="button"
