@@ -5,9 +5,17 @@ import {
   ShoppingCartIcon,
 } from "@heroicons/react/24/outline";
 import logo from "../assets/logo.png";
+import { useDispatch, useSelector } from "react-redux";
+import { openCartReq, openCart } from "../redux/CartSlice";
 
 const Navbar = () => {
   const [navState, setNavState] = useState(false);
+  const dispatch = useDispatch();
+
+  const onCartOpen = () => {
+    dispatch(openCartReq());
+    dispatch(openCart());
+  };
 
   const onScroll = () => {
     if (window.scrollY > 30) {
@@ -55,6 +63,7 @@ const Navbar = () => {
             <button className="border-none outline-none active:scale-110 transition-all duration-300 relative">
               <ShoppingCartIcon
                 className={`icon-style ${navState && "filter brightness-0"}`}
+                onClick={onCartOpen}
               />
             </button>
             <div
