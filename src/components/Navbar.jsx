@@ -64,14 +64,16 @@ const Navbar = () => {
           <li className="grid items-center relative">
             <button className="border-none outline-none active:scale-110 transition-all duration-300 relative">
               <ShoppingCartIcon
-                className={`icon-style ${navState && "filter brightness-0"}`}
+                className={`icon-style ${
+                  navState && "filter brightness-0 text-white"
+                }`}
                 onClick={onCartOpen}
               />
             </button>
             <div
               className={`absolute top-3.5 right-0  text-slate-900 shadow  w-4 h-4 text-[0.65rem] leading-tight font-medium rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-all duration-300 ${
                 navState
-                  ? "bg-slate-900 text-slate-100 shadow-slate-900"
+                  ? "bg-slate-900 text-sky-100 shadow-slate-900"
                   : "bg-slate-100 text-sky-900 shadow-slate-100"
               }`}
             >

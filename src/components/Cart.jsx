@@ -10,6 +10,11 @@ const Cart = () => {
 
   const { isCartOpen, cartItem } = useSelector((state) => state.cart);
 
+  const totalPrice = cartItem?.reduce(
+    (acc, item) => acc + item.cartQty * item.price,
+    0
+  );
+
   const onCartClose = () => {
     dispatch(closeCart(false));
   };
@@ -49,7 +54,7 @@ const Cart = () => {
               <div className="flex items-center justify-between">
                 <h1 className="text-base font-semibold uppercase">SubTotal</h1>
                 <h1 className="text-sm rounded bg-theme-cart text-slate-100 px-1 py-0.5">
-                  000
+                  <p> ${`${totalPrice}`}</p>
                 </h1>
               </div>
               <div className="grid items-center gap-2 ">

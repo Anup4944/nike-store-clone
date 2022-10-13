@@ -72,7 +72,7 @@ const CartSlice = createSlice({
       }
       window.localStorage.setItem("cart", JSON.stringify(state.cartItem));
     },
-    clearCartItems: (state, action) => {
+    clearCartItems: (state) => {
       state.cartItem = [];
       toast.success(`Cart cleared`);
       window.localStorage.setItem("cart", JSON.stringify(state.cartItem));
