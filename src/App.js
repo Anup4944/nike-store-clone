@@ -6,6 +6,7 @@ import {
   Stories,
   Footer,
   Navbar,
+  Cart,
 } from "./components";
 import {
   heroApi,
@@ -21,6 +22,7 @@ const App = () => {
   return (
     <>
       <Navbar />
+      <Cart />
       <main className="flex flex-col gap-16 relative">
         <Hero heroApi={heroApi} />
         <Sales endPoint={popularsales} ifExists />
